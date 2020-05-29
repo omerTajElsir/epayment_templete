@@ -1,0 +1,176 @@
+{
+  "home" :{
+      "title" : "",
+      "rem_amount" : "Remaining Amount",
+      "amount" :{
+        "income" : "Income",
+        "expense" : "Expense"
+      },
+      "send_money" : "Send Money to",
+      "add_beneficiary" : "Add new beneficiary",
+      "you_want" : "You Want To",
+      "last_trans" : "Latest Transactions",
+      "see_more" : "See more",
+      "ATM" : "ATM",
+      "bills" : "Bills",
+      "qr" : "QR",
+      "states" : "States",
+      "good_morning" : "Good morning"
+  },
+  "profile": {
+      "title": "Reset Password",
+      "username": "Username",
+      "password": "password"
+  },
+
+  "intro": {
+    "title1": "title 1",
+    "title2": "title 2",
+    "title3": "title 3",
+    "next": "Next",
+    "prev": "Previous",
+    "skip": "Skip",
+    "signup": "Signup"
+  },
+
+  "Favorite": {
+    "billers": "Favorite Billers"
+  },
+
+
+  "RigisterPage": {
+    "TITLE": "E-Payment Templete",
+    "Welcome_to": "Welcome to",
+    "Enter_your_number": "Enter your number",
+    "Login": "Login",
+    "TC": "T&C",
+    "Our": "     Our"
+  },
+  "confirm_page": {
+    "Enter the 4-digit code sent to you at": "Enter the 4-digit code sent to you at",
+    "I didn’t receive code": "I didn’t receive code"
+  },
+  "test": {
+    "test2": "test 2"
+  },
+  "Transactions": {
+    "Transactions": "Transactions",
+    "Week": "Week",
+    "Month": "Month",
+    "Day": "Day",
+    "Year": "Year",
+    "Your wallet": "Your wallet",
+    "SDG": ".SDG"
+  },
+  "Profile": {
+    "profile": "Profile",
+    "GENERAL": "GENERAL",
+    "Profile": "Profile",
+    "Logout": "Logout",
+    "Account Settings": "Account Settings",
+    "Update and modify your profile": "Update and modify your profile",
+    "Payment Details": "Payment Details",
+    "Cards Settings'": "Cards Settings'",
+    "Notifications & Alerts": "Notifications & Alerts",
+    "App Settings": "App Settings"
+  },
+  "fingerprint": {
+    "Tap and hold to scan": "Tap and hold to scan",
+    "Next": "Next",
+    "Scanned": "Scanned ",
+    "OK": "OK",
+    "Your Fingerprint Is \n Has Been Successfully Scanned": "Your Fingerprint Is \n Has Been Successfully Scanned"
+  },
+  "dialog": {
+    "Send": "Send",
+    "Pay": "Pay",
+    "It seems like your balance is insufficient,\n please top up and try again.": "It seems like your balance is insufficient,\n please top up and try again.",
+    "Not working?": "Not working?",
+    "Transfer is Successfull": "Transfer is Successfull"
+  },
+
+
+  "Maps": {
+    "title": "ATM Locator"
+  },
+
+  "Bills": {
+    "title": "Bills",
+    "available_bills": "Our Available Payees List"
+  },
+
+  "Electricity": {
+    "title": "Electricity",
+    "new": "New",
+    "saved": "Saved",
+    "meter_no": "Meter No",
+    "amount": "Amount",
+    "pay": "Pay"
+  },
+
+  "TopUp": {
+    "title": "Top Up",
+    "select_operator": "Select Operator",
+    "phone": "Phone No",
+    "amount": "Amount",
+    "pay": "Pay"
+  },
+
+  "PaymentSuccess" : {
+    "subtitle": "your payment",
+    "title": "is Successful",
+    "top_up_no": "Top Up No",
+    "date": "Date",
+    "phone": "Phone No",
+    "time": "Time",
+    "card_no": "Card No",
+    "top_up_amount": "Top Up Amount"
+  },
+
+  "MonthReport": {
+    "send": "Send",
+    "receive": "Receive",
+    "cancel": "Cancel"
+  },
+
+  "weeks" :{
+    "sun" : "sun",
+    "mon" : "mon",
+    "tue" : "tue",
+    "wed" : "wed",
+    "thu" : "thu",
+    "fri" : "fri",
+    "sat" : "sat"
+  },
+
+  "months" :{
+    "jan" : "january",
+    "feb" : "febreuary",
+    "mar" : "march",
+    "apr" : "april",
+    "may" : "may",
+    "jun" : "june",
+    "jul" : "july",
+    "ags" : "august",
+    "seb" : "sebtember",
+    "oct" : "october",
+    "nov" : "november",
+    "dec" : "december"
+  },
+
+  "todo" :{
+    "schedule" : "schedule",
+    "no_schedule" : "No Scheduled Payments \n Today !",
+    "enjoy" : "Enjoy the wealthiness of today or \n set our a new expense",
+    "add_expense" : "Add Expenses"
+  },
+
+  "stat" :{
+    "statistics" : "Statistics",
+    "card_balance" : "Card Balance",
+    "monthly" : "Monthly",
+    "daily" : "Daily",
+    "view_budget" : "View Budget",
+    "spending" : "Spending Breakdown"
+  }
+}

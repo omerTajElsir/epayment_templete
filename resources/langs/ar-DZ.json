@@ -1,0 +1,167 @@
+{
+  "home": {
+    "title": "",
+    "rem_amount": "الرصيد المتبقي",
+    "amount": {
+      "income": "الدخل",
+      "expense": "المنصرف"
+    },
+    "send_money": "إرسال الاموال الي",
+    "add_beneficiary": "اضافة مستفيد جديد",
+    "you_want": "إستخدام",
+    "last_trans": "المعاملات الأخيرة",
+    "see_more": "مشاهدة المزيد",
+    "ATM": "الصراف الألي",
+    "bills": "الفواتير",
+    "qr": "رمز QR",
+    "states": "الحالة",
+    "good_morning" : "صباح الخير"
+  },
+
+  "intro": {
+    "title1": "عنوان 1",
+    "title2": "عنوان 2",
+    "title3": "عنوان 3",
+    "next": "التالي",
+    "prev": "السابق",
+    "skip": "تخطي",
+    "signup": "تسجيل"
+  },
+
+
+
+  "RigisterPage": {
+    "TITLE": "بنك البلد",
+    "Welcome_to": "مرحبا بك في",
+    "Enter_your_number": "ادخل رقمك",
+    "Login": " تسجيل الدخول",
+    "TC": "الأحكام والشروط     ",
+    "Our": " "
+  },
+  "confirm_page": {
+    "Enter the 4-digit code sent to you at": "أدخل رمز التأكيد المكون من أربع خانات",
+    "I didn’t receive code": "لم استلم رمز التأكيد"
+  },
+  "test": {
+    "test2": "اختابر"
+  },
+  "fingerprint": {
+    "Tap and hold to scan": "المس لفحص البصمة",
+    "Next": "التالي",
+    "Scanned": "تم التأكد",
+    "OK": "حسناً",
+    "Your Fingerprint Is \n Has Been Successfully Scanned": "تم فحص بصمتك \n بنجاح"
+  },
+  "dialog": {
+    "Send": "ارسال",
+    "Pay": "دفع",
+    "It seems like your balance is insufficient,\n please top up and try again.": "يبدو أن رصيدك غير كافٍ ، \n يرجى إعادة الشحن والمحاولة مرة أخرى.",
+    "Not working?": "لا يعمل؟",
+    "Transfer is Successfull": "تم التحويل بنجاح"
+  },
+  "Maps": {
+    "title": "نقاط الصراف الالي"
+  },
+  "Bills": {
+    "title": "فواتير",
+    "available_bills": "قائمة فواتيرنا المتوفره"
+  },
+  "Electricity": {
+    "title": "الكهرباء",
+    "new": "جديده",
+    "saved": "محفوظة",
+    "meter_no": "رقم العداد",
+    "amount": "المبلغ",
+    "pay": "دفع"
+  },
+  "TopUp": {
+    "title": "Top Up",
+    "select_operator": "حدد الموزع",
+    "phone": "رقم الهاتف",
+    "amount": "المبلغ",
+    "pay": "دفع"
+  },
+  "PaymentSuccess": {
+    "subtitle": "دفعيتك",
+    "title": "إكتملت بنجاح",
+    "top_up_no": "Top Up No",
+    "date": "التاريخ",
+    "phone": "رقم الهاتف",
+    "time": "الوقت",
+    "card_no": "رقم البطاقة",
+    "top_up_amount": "المبلغ الكلي"
+  },
+  "Home": {
+    "Remaining Amount": ""
+  },
+  "MonthReport": {
+    "send": "إرسال",
+    "receive": "إستلام",
+    "cancel": "إلغاء"
+  },
+  "Transactions": {
+    "Transactions": "نحويلات",
+    "Your wallet": "محفظتك",
+    "Week": "اسبوع",
+    "Month": "شهر",
+    "Day": "يوم",
+    "Year": "سنة",
+    "SDG": ".جنيه"
+  },
+  "Favorite": {
+    "billers": "الفواتير المفضلة"
+  },
+  "Profile": {
+    "profile": "الحساب",
+    "GENERAL": "عام",
+    "Logout": "تسجيل الخروج",
+    "Profile": "الحساب الشخصي",
+    "Account Settings": "اعدادات الحساب",
+    "Update and modify your profile": "تحديث وتعديل حسابك الشخصي",
+    "Payment Details": "بيانات الدفع",
+    "Cards Settings": "اعدادات البطاقات",
+    "Notifications & Alerts": "الاشعارات والتنبيه",
+    "App Settings": "اعدادات التطبيق"
+  },
+
+  "weeks" :{
+    "sun" : "احد",
+    "mon" : "اثنين",
+    "tue" : "ثلاثاء",
+    "wed" : "اربعاء",
+    "thu" : "خميس",
+    "fri" : "جمعه",
+    "sat" : "سبت"
+  },
+
+  "months" :{
+    "jan" : "يناير",
+    "feb" : "فبراير",
+    "mar" : "مارس",
+    "apr" : "ابريل",
+    "may" : "مايو",
+    "jun" : "يونيو",
+    "jul" : "يوليو",
+    "ags" : "اغسطس",
+    "seb" : "سبتمبر",
+    "oct" : "اكتوبر",
+    "nov" : "نوفمبر",
+    "dec" : "ديسمبر"
+  },
+
+  "todo" :{
+    "schedule" : "الجدول",
+    "no_schedule" : "لا يوجد اي جداول   \n لهذا اليوم !",
+    "enjoy" : "اسمتع بهذا اليوم \n او اضف نفقات اخرى",
+    "add_expense" : "اضافة نفقات"
+  },
+
+  "stat" :{
+    "statistics" : "الاحصائيات",
+    "card_balance" : "رصيد البطاقه",
+    "monthly" : "شهريا",
+    "daily" : "يوميا",
+    "view_budget" : "عرض الميزانية",
+    "spending" : "تقسيم المنصرفات"
+  }
+}
