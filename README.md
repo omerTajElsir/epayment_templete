@@ -4,8 +4,8 @@ An e payment ui example
 
 ## Screenshots
 
-<img src="/screens/ss1.jpg" width="100">
-<img src="/screens/ss2.jpg" width="100">
+<img src="/screens/ss1.jpg" width="100">|
+<img src="/screens/ss2.jpg" width="100">|
 <img src="/screens/ss3.jpg" width="100">
 <img src="/screens/ss4.jpg" width="100">
 <img src="/screens/ss6.jpg" width="100">
