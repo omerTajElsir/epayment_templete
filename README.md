@@ -2,15 +2,17 @@
 
 An e payment ui example
 
-## Getting Started
+## Screenshots
 
-This project is a starting point for a Flutter application.
+![ScreenShot](/screens/ss1.jpg)![ScreenShot](/screens/ss2.jpg)![ScreenShot](/screens/ss3.jpg)
+![ScreenShot](/screens/ss4.jpg)![ScreenShot](/screens/ss6.jpg)![ScreenShot](/screens/ss7.jpg)
+![ScreenShot](/screens/ss10.jpg)![ScreenShot](/screens/ss11.jpg)![ScreenShot](/screens/ss12.jpg)
+![ScreenShot](/screens/ss13.jpg)![ScreenShot](/screens/ss15.jpg)![ScreenShot](/screens/ss16.jpg)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Features
+- Responsive design on all mobile and tablet devices
+- automatic lock when exiting the app for security
+- English and arabic localization
+- Animations and vectors
+- Using flare animations
