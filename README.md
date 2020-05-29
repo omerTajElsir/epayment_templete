@@ -26,7 +26,7 @@ An e payment ui example
 - Using flare animations
 
 ## Developer
-Omer taj elsir
-http://enigma-it.com
-omertaj39@gmail.com
-00249992400444
+- Omer taj elsir
+- http://enigma-it.com
+- omertaj39@gmail.com
+00249991400444
