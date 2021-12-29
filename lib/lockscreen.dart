@@ -15,13 +15,12 @@ class _LockScreenState extends State<LockScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     //var data = EasyLocalizationProvider.of(context).data;
 
-    ResponsiveWidgets.init(context,
-        referenceHeight: 1920, // Optional
-        referenceWidth: 1080, // Optional
-        referenceShortestSide: 411 // Optional,
+    ResponsiveWidgets.init(
+      context,
+      height: 1920, // Optional
+      width: 1080, // Optional
     );
     return ResponsiveWidgets.builder(
       child: Scaffold(
@@ -33,19 +32,19 @@ class _LockScreenState extends State<LockScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Padding(
-                    padding: EdgeInsetsResponsive.only(top: 20.0, right: 20,left:20 ),
+                    padding: EdgeInsetsResponsive.only(
+                        top: 20.0, right: 20, left: 20),
                     child: GestureDetector(
                       onTap: () {
                         bottomSheetFailed(context);
                       },
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
+                      child: Row(mainAxisAlignment: MainAxisAlignment.end,
                           // alignment: Alignment.topRight,
                           children: <Widget>[
                             Text(
                               "next",
-                              style: TextStyle(
-                                  color: Colors.white, fontSize: 13),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 13),
                             ),
                           ]),
                     ),
@@ -55,27 +54,27 @@ class _LockScreenState extends State<LockScreen> {
                       children: <Widget>[
                         Container(
                           height: 47,
-                          width: MediaQuery.of(context).size.width/1.2,
+                          width: MediaQuery.of(context).size.width / 1.2,
                           // margin: EdgeInsets.fromLTRB(28.0, 0, 0, 0),
                           child: Material(
                             elevation: 6.0,
                             shadowColor: Colors.black38,
                             child: TextFormField(
-                              onChanged: (value){
-                                if(value.length>3){
+                              onChanged: (value) {
+                                if (value.length > 3) {
                                   AppLock.of(context).didUnlock();
                                 }
                               },
-                              textAlign:
-                              Localizations.localeOf(context).languageCode ==
-                                  "en"
+                              textAlign: Localizations.localeOf(context)
+                                          .languageCode ==
+                                      "en"
                                   ? TextAlign.center
                                   : TextAlign.center,
                               autofocus: false,
                               controller: _textEditingController,
                               decoration: InputDecoration(
                                 contentPadding:
-                                EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                                    EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(0.0),
                                     borderSide: BorderSide(
@@ -95,8 +94,6 @@ class _LockScreenState extends State<LockScreen> {
                                 }else if(value.length != 9){
                                   return 'phone must be 9 digits';
                                 }*/
-
-
                               },
                             ),
                           ),
@@ -107,10 +104,9 @@ class _LockScreenState extends State<LockScreen> {
                           ),
                           child: Align(
                             child: Text(
-                              "Passcode must 4 digits"
-                                  ,
-                              style: TextStyle(
-                                  color: Colors.white, fontSize: 13),
+                              "Passcode must 4 digits",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 13),
                             ),
                           ),
                         )

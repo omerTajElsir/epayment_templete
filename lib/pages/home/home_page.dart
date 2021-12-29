@@ -13,9 +13,9 @@ import 'package:epayment_templete/pages/statistics/StatisticsPage.dart';
 import 'package:epayment_templete/pages/tab/profile.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:easy_localization/easy_localization_provider.dart';
 import 'package:qrscan/qrscan.dart' as scanner;
 
+import '../../generated/locale_keys.g.dart';
 import '../maps.dart';
 import '../month_report.dart';
 import '../payment_success.dart';
@@ -27,9 +27,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
 
   BuildContext _context;
   Size size;
@@ -57,38 +55,51 @@ class _HomePageState extends State<HomePage> {
               style: TextStyle(color: Colors.black, fontSize: 18),
               textAlign: TextAlign.start,
             ),
-            SizedBox(width: 5,),
-            Text(AppLocalizations.of(context).tr('home.good_morning'),
-                style: TextStyle(color: Color(0xff042C5C), fontSize: 12),
-                textAlign: TextAlign.start),
+            SizedBox(
+              width: 5,
+            ),
+            Text(LocaleKeys.home_good_morning,
+                    style: TextStyle(color: Color(0xff042C5C), fontSize: 12),
+                    textAlign: TextAlign.start)
+                .tr(),
           ],
         ),
       ),
       actions: <Widget>[
         IconButton(
-            icon: Icon(Icons.person,color: Colors.black,), onPressed: () {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => Profile()));
-        }),
-
+            icon: Icon(
+              Icons.person,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => Profile()));
+            }),
       ],
       leading: IconButton(
-          icon: Image.asset('assets/menu-icon.png'), onPressed: () {
-        _scaffoldKey.currentState.openDrawer();
-      }),
+          icon: Image.asset('assets/menu-icon.png'),
+          onPressed: () {
+            _scaffoldKey.currentState.openDrawer();
+          }),
       centerTitle: false,
     );
   }
 
-  get _getDrawer{
+  get _getDrawer {
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
           UserAccountsDrawerHeader(
             decoration: BoxDecoration(color: Colors.grey.shade400),
-            accountEmail: Text("omertaj39@gmail.com",style: TextStyle(color: Colors.black),),
-            accountName: Text("Omer Tajelsir",style: TextStyle(color: Colors.black),),
+            accountEmail: Text(
+              "omertaj39@gmail.com",
+              style: TextStyle(color: Colors.black),
+            ),
+            accountName: Text(
+              "Omer Tajelsir",
+              style: TextStyle(color: Colors.black),
+            ),
             currentAccountPicture: GestureDetector(
               child: CircleAvatar(
                 backgroundColor: Colors.white,
@@ -110,7 +121,8 @@ class _HomePageState extends State<HomePage> {
             leading: Icon(Icons.person),
             title: Text('My account'),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute<void>(builder: (context)=>Profile()));
+              Navigator.push(context,
+                  MaterialPageRoute<void>(builder: (context) => Profile()));
             },
           ),
           Divider(),
@@ -119,29 +131,34 @@ class _HomePageState extends State<HomePage> {
             leading: Icon(Icons.show_chart),
             title: Text('Statistics'),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute<void>(builder: (context)=>StatisticsPage()));
-
+              Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                      builder: (context) => StatisticsPage()));
             },
           ),
           ListTile(
             leading: Icon(Icons.monetization_on),
             title: Text('Budget'),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute<void>(builder: (context)=>BudgetPage()));
+              Navigator.push(context,
+                  MaterialPageRoute<void>(builder: (context) => BudgetPage()));
             },
           ),
           ListTile(
             leading: Icon(Icons.date_range),
             title: Text('Mounth Report'),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute<void>(builder: (context)=>MonthReport()));
+              Navigator.push(context,
+                  MaterialPageRoute<void>(builder: (context) => MonthReport()));
             },
           ),
           ListTile(
             leading: Icon(Icons.update),
             title: Text('Schedule'),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute<void>(builder: (context)=>TodoTwoPage()));
+              Navigator.push(context,
+                  MaterialPageRoute<void>(builder: (context) => TodoTwoPage()));
             },
           ),
           Divider(),
@@ -149,9 +166,13 @@ class _HomePageState extends State<HomePage> {
           Divider(),
           ListTile(
             leading: Icon(Icons.power_settings_new),
-            title: Text('Logout',style: TextStyle(color: Colors.red),),
+            title: Text(
+              'Logout',
+              style: TextStyle(color: Colors.red),
+            ),
             onTap: () {
-              Navigator.pushReplacement(context, MaterialPageRoute<void>(builder: (context)=>SplashPage()));
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute<void>(builder: (context) => SplashPage()));
             },
           ),
         ],
@@ -159,33 +180,31 @@ class _HomePageState extends State<HomePage> {
       elevation: 1.5,
     );
   }
+
   var pageCont = PageController(viewportFraction: 1 / 1.2);
   //get card list
   Widget _getCardList(BuildContext context) {
     return PageView(
       controller: pageCont,
-      onPageChanged: (pageIndex){
-        if(pageIndex == 0){
+      onPageChanged: (pageIndex) {
+        if (pageIndex == 0) {
           setState(() {
             cardName = "First Card";
           });
-
-        }else if(pageIndex == 1){
+        } else if (pageIndex == 1) {
           setState(() {
             cardName = "Second Card";
           });
-
-        }else{
+        } else {
           setState(() {
             cardName = "Unknown Card";
           });
-
         }
       },
       scrollDirection: Axis.horizontal,
       children: <Widget>[
         Container(
-          margin: EdgeInsets.only(left: 0,right: 10),
+          margin: EdgeInsets.only(left: 0, right: 10),
           height: size.height * 0.20,
           width: size.width * 0.70,
           decoration: BoxDecoration(
@@ -198,11 +217,13 @@ class _HomePageState extends State<HomePage> {
                   right: 10,
                   top: 10,
                   child: IconButton(
-                    icon: Icon(Icons.edit,color: Colors.lightBlueAccent,),
-                    onPressed: (){
-                      Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (context) => EditCard()));
-
+                    icon: Icon(
+                      Icons.edit,
+                      color: Colors.lightBlueAccent,
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => EditCard()));
                     },
                   ),
                 ),
@@ -211,7 +232,7 @@ class _HomePageState extends State<HomePage> {
                     bottom: 40.0,
                     child: Text(
                       'xxxx xxxx xxxx 2854',
-                      style: TextStyle(color: Colors.white,letterSpacing: 3),
+                      style: TextStyle(color: Colors.white, letterSpacing: 3),
                     )),
                 Positioned(
                     right: 20.0,
@@ -230,13 +251,13 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             onTap: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => StatisticsPage()));
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => StatisticsPage()));
             },
           ),
         ),
         Container(
-          margin: EdgeInsets.only(left: 10,right: 10),
+          margin: EdgeInsets.only(left: 10, right: 10),
           height: size.height * 0.20,
           width: size.width * 0.70,
           decoration: BoxDecoration(
@@ -249,10 +270,13 @@ class _HomePageState extends State<HomePage> {
                   right: 10,
                   top: 10,
                   child: IconButton(
-                    icon: Icon(Icons.edit,color: Colors.lightBlueAccent,),
-                    onPressed: (){
-                      Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (context) => EditCard()));
+                    icon: Icon(
+                      Icons.edit,
+                      color: Colors.lightBlueAccent,
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => EditCard()));
                     },
                   ),
                 ),
@@ -261,7 +285,8 @@ class _HomePageState extends State<HomePage> {
                     bottom: 40.0,
                     child: Text(
                       'xxxx xxxx xxxx 2856',
-                      style: TextStyle(color: Color(0xFF042C5C),letterSpacing: 3),
+                      style:
+                          TextStyle(color: Color(0xFF042C5C), letterSpacing: 3),
                     )),
                 Positioned(
                     right: 20.0,
@@ -290,7 +315,7 @@ class _HomePageState extends State<HomePage> {
           height: 50,
           //color: Colors.blue,
           child: GestureDetector(
-            onTap: (){
+            onTap: () {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => AddNewCard()));
             },
@@ -299,7 +324,6 @@ class _HomePageState extends State<HomePage> {
               height: 50,
               child: Align(
                 alignment: Alignment.centerLeft,
-
                 child: Container(
                   width: 50,
                   height: 50,
@@ -317,7 +341,6 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         )
-
       ],
     );
   }
@@ -328,16 +351,15 @@ class _HomePageState extends State<HomePage> {
         width: size.width * 0.30,
         child: Card(
           child: InkWell(
-
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Image.asset('assets/plus.png'),
                 Text(
-                  AppLocalizations.of(context).tr('home.add_beneficiary'),
+                  LocaleKeys.home_add_beneficiary,
                   textAlign: TextAlign.center,
-                )
+                ).tr()
               ],
             ),
             onTap: () {},
@@ -350,10 +372,7 @@ class _HomePageState extends State<HomePage> {
           child: InkWell(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Image.asset('assets/m1.png'),
-                Text('Omer')
-              ],
+              children: <Widget>[Image.asset('assets/m1.png'), Text('Omer')],
             ),
             onTap: () {
               Navigator.of(context)
@@ -368,10 +387,7 @@ class _HomePageState extends State<HomePage> {
           child: InkWell(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Image.asset('assets/m2.png'),
-                Text('Omer')
-              ],
+              children: <Widget>[Image.asset('assets/m2.png'), Text('Omer')],
             ),
             onTap: () {
               Navigator.of(context)
@@ -386,10 +402,7 @@ class _HomePageState extends State<HomePage> {
           child: InkWell(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Image.asset('assets/m3.png'),
-                Text('Omer')
-              ],
+              children: <Widget>[Image.asset('assets/m3.png'), Text('Omer')],
             ),
             onTap: () {},
           ),
@@ -403,9 +416,9 @@ class _HomePageState extends State<HomePage> {
       Container(
         width: size.width * 0.30,
         child: GestureDetector(
-          onTap: (){
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => ElectricityPage()));
+          onTap: () {
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => ElectricityPage()));
           },
           child: Card(
             child: Column(
@@ -419,7 +432,7 @@ class _HomePageState extends State<HomePage> {
                     width: 90,
                   ),
                 ),
-                Text(AppLocalizations.of(context).tr('Electricity.title'))
+                Text(LocaleKeys.Electricity_title).tr()
               ],
             ),
           ),
@@ -428,7 +441,7 @@ class _HomePageState extends State<HomePage> {
       Container(
         width: size.width * 0.30,
         child: GestureDetector(
-          onTap: (){
+          onTap: () {
             Navigator.of(context)
                 .push(MaterialPageRoute(builder: (context) => TopUp()));
           },
@@ -444,7 +457,7 @@ class _HomePageState extends State<HomePage> {
                     width: 90,
                   ),
                 ),
-                Text(AppLocalizations.of(context).tr('TopUp.title'))
+                Text(LocaleKeys.TopUp_title).tr()
               ],
             ),
           ),
@@ -458,7 +471,7 @@ class _HomePageState extends State<HomePage> {
       Container(
         width: size.width * 0.30,
         child: GestureDetector(
-          onTap: (){
+          onTap: () {
             Navigator.of(context)
                 .push(MaterialPageRoute(builder: (context) => Bills()));
           },
@@ -474,7 +487,7 @@ class _HomePageState extends State<HomePage> {
                     width: 90,
                   ),
                 ),
-                Text(AppLocalizations.of(context).tr('home.bills'))
+                Text(LocaleKeys.home_bills).tr()
               ],
             ),
           ),
@@ -483,7 +496,7 @@ class _HomePageState extends State<HomePage> {
       Container(
         width: size.width * 0.30,
         child: GestureDetector(
-          onTap: (){
+          onTap: () {
             Navigator.of(context)
                 .push(MaterialPageRoute(builder: (context) => Maps()));
           },
@@ -499,7 +512,7 @@ class _HomePageState extends State<HomePage> {
                     width: 90,
                   ),
                 ),
-                Text(AppLocalizations.of(context).tr('home.ATM'))
+                Text(LocaleKeys.home_ATM).tr()
               ],
             ),
           ),
@@ -508,88 +521,107 @@ class _HomePageState extends State<HomePage> {
       Container(
         width: size.width * 0.30,
         child: GestureDetector(
-          onTap: (){
+          onTap: () {
             showModalBottomSheet(
-                                    context: (context),
-                                    builder: (context) {
-                                      return Container(
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(16.0),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.min,
-                                            children: <Widget>[
-                                              Container(
-                                                  margin: const EdgeInsets.all(0),
-                                                  child: Column(
-                                                    children: <Widget>[
-                                                      GestureDetector(
-                                                        onTap:() async {
-                                                          bottomSheetQR(context);
-
-                                                      },
-                                                        child: Container(
-                                                          height:50,
-                                                          decoration:BoxDecoration(
-                                                              borderRadius: BorderRadius.only(
-                                                                topLeft: Radius.circular(20),
-                                                                topRight: Radius.circular(20),
-                                                              ),
-                                                            border: Border.all(width: 1,color: Colors.grey[300]),
-                                                            color: Colors.white,
-                                                          ),
-                                                          child: Center(child: Text(AppLocalizations.of(context).tr('MonthReport.receive'),style: TextStyle(fontSize: 15,fontWeight: FontWeight.w600,color: Colors.grey[800]),)),
-                                                        ),
-                                                      ),
-
-                                                      GestureDetector(
-                                                        onTap:()async{
-                                                          //bottomSheetQR(context);
-                                                          String
-                                                          photoScanResult = await scanner.scan();
-                                                          print(photoScanResult);
-                                                          Navigator.pop(context);
-                                                          bottomSheetSuccess(context);
-                                                        },
-                                                        child: Container(
-                                                          height:50,
-                                                          decoration:BoxDecoration(
-                                                            borderRadius: BorderRadius.only(
-                                                              bottomLeft: Radius.circular(20),
-                                                              bottomRight: Radius.circular(20),
-                                                            ),
-                                                            border: Border.all(width: 1,color: Colors.grey[300]),
-                                                            color: Colors.white,
-                                                          ),
-                                                          child: Center(child: Text(AppLocalizations.of(context).tr('MonthReport.send'),style: TextStyle(fontSize: 15,fontWeight: FontWeight.w600,color: Colors.grey[800]),)),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  )
-                                              ),
-                                              SizedBox(height: 5,),
-                                              Container(
-                                                height: 50,
-                                                width: MediaQuery.of(context).size.width,
-                                                child: RaisedButton(
-                                                  onPressed: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Text(AppLocalizations.of(context).tr('MonthReport.cancel'),style: TextStyle(fontSize: 15,fontWeight: FontWeight.w600,color: Colors.grey[800]),),
-                                                  color: Colors.white,
-                                                  shape: RoundedRectangleBorder(
-                                                      borderRadius: BorderRadius.circular(20)
-                                                  ),
-                                                ),
-                                              )
-                                            ],
-                                          ),
-                                        ),
-                                      );
+                context: (context),
+                builder: (context) {
+                  return Container(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Container(
+                              margin: const EdgeInsets.all(0),
+                              child: Column(
+                                children: <Widget>[
+                                  GestureDetector(
+                                    onTap: () async {
+                                      bottomSheetQR(context);
                                     },
-                                    backgroundColor: Colors.transparent,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(12)));
-
+                                    child: Container(
+                                      height: 50,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(20),
+                                          topRight: Radius.circular(20),
+                                        ),
+                                        border: Border.all(
+                                            width: 1, color: Colors.grey[300]),
+                                        color: Colors.white,
+                                      ),
+                                      child: Center(
+                                          child: Text(
+                                        LocaleKeys.MonthReport_receive,
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w600,
+                                            color: Colors.grey[800]),
+                                      ).tr()),
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: () async {
+                                      //bottomSheetQR(context);
+                                      String photoScanResult =
+                                          await scanner.scan();
+                                      print(photoScanResult);
+                                      Navigator.pop(context);
+                                      bottomSheetSuccess(context);
+                                    },
+                                    child: Container(
+                                      height: 50,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(20),
+                                          bottomRight: Radius.circular(20),
+                                        ),
+                                        border: Border.all(
+                                            width: 1, color: Colors.grey[300]),
+                                        color: Colors.white,
+                                      ),
+                                      child: Center(
+                                          child: Text(
+                                        LocaleKeys.MonthReport_send,
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w600,
+                                            color: Colors.grey[800]),
+                                      ).tr()),
+                                    ),
+                                  ),
+                                ],
+                              )),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Container(
+                            height: 50,
+                            width: MediaQuery.of(context).size.width,
+                            child: RaisedButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text(
+                                LocaleKeys.MonthReport_cancel,
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.grey[800]),
+                              ).tr(),
+                              color: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20)),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+                },
+                backgroundColor: Colors.transparent,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12)));
           },
           child: Card(
             child: Column(
@@ -603,7 +635,7 @@ class _HomePageState extends State<HomePage> {
                     width: 90,
                   ),
                 ),
-                Text(AppLocalizations.of(context).tr('home.qr'))
+                Text(LocaleKeys.home_qr).tr()
               ],
             ),
           ),
@@ -623,7 +655,7 @@ class _HomePageState extends State<HomePage> {
                   width: 90,
                 ),
               ),
-              Text(AppLocalizations.of(context).tr('home.states'))
+              Text(LocaleKeys.home_states).tr()
             ],
           ),
         ),
@@ -660,183 +692,181 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    _context=this.context;
+    _context = this.context;
     size = MediaQuery.of(context).size;
-    return EasyLocalizationProvider(
-      data: EasyLocalizationProvider.of(context).data,
-      child: Scaffold(
-        key: _scaffoldKey,
-        appBar: _getAppbar,
-        drawer: _getDrawer,
-        body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ListView(
-              children: <Widget>[
-                _sizeBox,
-                Container(
-                  height: size.height * 0.20,
-                  child: _getCardList(context),
-                ),
-                _sizeBox,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    Text(AppLocalizations.of(context).tr('home.rem_amount'),
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Color(0xff042C5C))),
-                    Text("  ( $cardName ) ",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.grey)),
-                  ],
-                ),
-                _sizeBox,
-                Container(
-                  height: 6,
-                  width: size.width * 0.90,
-                  child: IntrinsicWidth(
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Container(
-                          width: size.width * 0.60,
+    return Scaffold(
+      key: _scaffoldKey,
+      appBar: _getAppbar,
+      drawer: _getDrawer,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListView(
+            children: <Widget>[
+              _sizeBox,
+              Container(
+                height: size.height * 0.20,
+                child: _getCardList(context),
+              ),
+              _sizeBox,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Text(LocaleKeys.home_rem_amount,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xff042C5C)))
+                      .tr(),
+                  Text("  ( $cardName ) ",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.grey)),
+                ],
+              ),
+              _sizeBox,
+              Container(
+                height: 6,
+                width: size.width * 0.90,
+                child: IntrinsicWidth(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                        width: size.width * 0.60,
+                        decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius:
+                                Localizations.localeOf(context).languageCode ==
+                                        "en"
+                                    ? BorderRadius.horizontal(
+                                        left: Radius.circular(10))
+                                    : BorderRadius.horizontal(
+                                        right: Radius.circular(10))),
+                      ),
+                      Container(
+                          width: size.width * 0.30,
                           decoration: BoxDecoration(
-                              color: Colors.green,
-                              borderRadius:
-                                  Localizations.localeOf(context).languageCode == "en"
-                                      ? BorderRadius.horizontal(
-                                          left: Radius.circular(10))
-                                      : BorderRadius.horizontal(
-                                          right: Radius.circular(10))),
-                          
-                        ),
-                        Container(
-                            width: size.width * 0.30,
-                            
-                            decoration: BoxDecoration(
-                                color: Colors.red,
-                                borderRadius:
-                                    Localizations.localeOf(context).languageCode == "en"
-                                        ? BorderRadius.horizontal(
-                                            right: Radius.circular(10))
-                                        : BorderRadius.horizontal(
-                                            left: Radius.circular(10)))
-                            
-                            )
-                      ],
-                    ),
+                              color: Colors.red,
+                              borderRadius: Localizations.localeOf(context)
+                                          .languageCode ==
+                                      "en"
+                                  ? BorderRadius.horizontal(
+                                      right: Radius.circular(10))
+                                  : BorderRadius.horizontal(
+                                      left: Radius.circular(10))))
+                    ],
                   ),
                 ),
-                _sizeBox,
-                Container(
-                  height: size.height * 0.10,
-                  margin: EdgeInsets.only(left: 0,right: 0),
-                  child: IntrinsicWidth(
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        
-                        Expanded(
-                          child: ListTile(
-                            leading: Card(
-                              color: Colors.green[100],
-                              child: Icon(
-                                Icons.arrow_upward,
-                                color: Color(0xff29BF76),
-                                size: 50,
-                              ),
+              ),
+              _sizeBox,
+              Container(
+                height: size.height * 0.10,
+                margin: EdgeInsets.only(left: 0, right: 0),
+                child: IntrinsicWidth(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Expanded(
+                        child: ListTile(
+                          leading: Card(
+                            color: Colors.green[100],
+                            child: Icon(
+                              Icons.arrow_upward,
+                              color: Color(0xff29BF76),
+                              size: 50,
                             ),
-                            title: Text(
-                                AppLocalizations.of(context)
-                                    .tr('home.amount.income'),
-                                style: TextStyle(color: Color(0xff042C5C),fontSize: 12)),
-                            subtitle: Text('$incomeBalance',
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold)),
                           ),
+                          title: Text(LocaleKeys.home_amount_income,
+                                  style: TextStyle(
+                                      color: Color(0xff042C5C), fontSize: 12))
+                              .tr(),
+                          subtitle: Text('$incomeBalance',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold)),
                         ),
-                        Expanded(
-                          child: ListTile(
-                            leading: Card(
-                              color: Colors.red[100],
-                              child: Icon(Icons.arrow_downward,
-                                  color: Color(0xffF24750), size: 50),
-                            ),
-                            title: Text(
-                                AppLocalizations.of(context)
-                                    .tr('home.amount.expense'),
-                                style: TextStyle(color: Color(0xff042C5C),fontSize: 12)),
-                            subtitle: Text('$expenceBalance',
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold)),
+                      ),
+                      Expanded(
+                        child: ListTile(
+                          leading: Card(
+                            color: Colors.red[100],
+                            child: Icon(Icons.arrow_downward,
+                                color: Color(0xffF24750), size: 50),
                           ),
-                        )
-                      ],
-                    ),
+                          title: Text(LocaleKeys.home_amount_expense,
+                                  style: TextStyle(
+                                      color: Color(0xff042C5C), fontSize: 12))
+                              .tr(),
+                          subtitle: Text('$expenceBalance',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold)),
+                        ),
+                      )
+                    ],
                   ),
                 ),
-                _sizeBox,
-                Text(AppLocalizations.of(context).tr('home.send_money'),
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold)),
-                _sizeBox,
-                Container(
-                  height: size.height * 0.20,
-                  child: _geBeneficiaryList,
-                ),
-                _sizeBox,
-                Text(AppLocalizations.of(context).tr('Favorite.billers'),
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold)),
-                _sizeBox,
-                Container(
-                  height: size.height * 0.20,
-                  child: _geBillesrsList,
-                ),
-                _sizeBox,
-                Text(AppLocalizations.of(context).tr('home.you_want'),
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold)),
-                _sizeBox,
-                Container(
-                  height: size.height * 0.20,
-                  child: _geYouWantList,
-                ),
-                _sizeBox,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(AppLocalizations.of(context).tr('home.last_trans'),
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold)),
-                    FlatButton(
-                      child: Text(
-                          AppLocalizations.of(context).tr('home.see_more')),
-                      onPressed: () {},
-                    )
-                  ],
-                ),
-                Container(
-                  
-                  height: size.height * 0.25,
-                  child: _listOfTransactions,
-                )
-              ],
-            ),
+              ),
+              _sizeBox,
+              Text(LocaleKeys.home_send_money,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold))
+                  .tr(),
+              _sizeBox,
+              Container(
+                height: size.height * 0.20,
+                child: _geBeneficiaryList,
+              ),
+              _sizeBox,
+              Text(LocaleKeys.home_bills,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold))
+                  .tr(),
+              _sizeBox,
+              Container(
+                height: size.height * 0.20,
+                child: _geBillesrsList,
+              ),
+              _sizeBox,
+              Text(LocaleKeys.home_you_want,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold))
+                  .tr(),
+              _sizeBox,
+              Container(
+                height: size.height * 0.20,
+                child: _geYouWantList,
+              ),
+              _sizeBox,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(LocaleKeys.home_last_trans,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold))
+                      .tr(),
+                  FlatButton(
+                    child: Text(LocaleKeys.home_see_more).tr(),
+                    onPressed: () {},
+                  )
+                ],
+              ),
+              Container(
+                height: size.height * 0.25,
+                child: _listOfTransactions,
+              )
+            ],
           ),
         ),
       ),

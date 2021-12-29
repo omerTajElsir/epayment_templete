@@ -4,8 +4,8 @@ import 'package:epayment_templete/pages/fingerprint.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
+import '../../generated/locale_keys.g.dart';
 import '../home/home_page.dart';
-
 
 class ConfirmPage extends StatefulWidget {
   ConfirmPage({Key key, @required this.phoneNumber}) : super(key: key);
@@ -21,7 +21,6 @@ class _ConfirmPageState extends State<ConfirmPage>
   AnimationController _controller;
 
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
 
   // Variables
   Size _screenSize;
@@ -70,10 +69,10 @@ class _ConfirmPageState extends State<ConfirmPage>
   // Return "Email" label
   get _getPhoneLabel {
     return new Text(
-      AppLocalizations.of(context).tr("confirm_page.Enter the 4-digit code sent to you at"),
+      LocaleKeys.confirm_page_Enter_the_4_digit_code_sent_to_you_at,
       textAlign: TextAlign.center,
       style: new TextStyle(fontSize: 18.0, color: Colors.black),
-    );
+    ).tr();
   }
 
   // Return "OTP" input field
@@ -141,28 +140,32 @@ class _ConfirmPageState extends State<ConfirmPage>
             // top: 0.0,
             child: Center(
               heightFactor: 2.0,
-              child: Text(  AppLocalizations.of(context).tr("confirm_page.Enter the 4-digit code sent to you at"),
-                  style: TextStyle(color: Color(0xffDBA14F))),
+              child: Text(
+                      LocaleKeys
+                          .confirm_page_Enter_the_4_digit_code_sent_to_you_at,
+                      style: TextStyle(color: Color(0xffDBA14F)))
+                  .tr(),
             ),
           ),
           Positioned(
               right: 0.0,
               child: IconButton(
-                icon: Icon(Icons.arrow_forward),
-                onPressed: () {
-                  if(_firstDigit==null||_secondDigit==null||_thirdDigit==null||_fourthDigit==null){
-                    _scaffoldKey.currentState.showSnackBar(SnackBar(
-                      content: Text('Please enter the 4 digit pin'),
-                      duration: Duration(milliseconds: 700),
-                      backgroundColor: Colors.red,
-                    ));
-                  }else{
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => HomePage()));
-                  }
-
-                }
-              ))
+                  icon: Icon(Icons.arrow_forward),
+                  onPressed: () {
+                    if (_firstDigit == null ||
+                        _secondDigit == null ||
+                        _thirdDigit == null ||
+                        _fourthDigit == null) {
+                      _scaffoldKey.currentState.showSnackBar(SnackBar(
+                        content: Text('Please enter the 4 digit pin'),
+                        duration: Duration(milliseconds: 700),
+                        backgroundColor: Colors.red,
+                      ));
+                    } else {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => HomePage()));
+                    }
+                  }))
         ],
       ),
     );
@@ -282,7 +285,7 @@ class _ConfirmPageState extends State<ConfirmPage>
   void initState() {
     totalTimeInSeconds = time;
     super.initState();
-          // data.changeLocale(lang);
+    // data.changeLocale(lang);
     //     try {
     //   data.changeLocale(lang);
     // } catch (e) {}
@@ -308,21 +311,15 @@ class _ConfirmPageState extends State<ConfirmPage>
 
   @override
   Widget build(BuildContext context) {
-   var data = EasyLocalizationProvider.of(context).data;
-
     _screenSize = MediaQuery.of(context).size;
-    return EasyLocalizationProvider(
-      data: data,
-      child: Scaffold(
-        key: _scaffoldKey,
-
-        appBar: _getAppbar,
-        backgroundColor: Colors.white,
-        body: Container(
-          width: _screenSize.width,
+    return Scaffold(
+      key: _scaffoldKey,
+      appBar: _getAppbar,
+      backgroundColor: Colors.white,
+      body: Container(
+        width: _screenSize.width,
 //        padding: new EdgeInsets.only(bottom: 16.0),
-          child: _getInputPart,
-        ),
+        child: _getInputPart,
       ),
     );
   }

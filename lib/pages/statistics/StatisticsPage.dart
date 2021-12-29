@@ -1,6 +1,7 @@
 import 'package:epayment_templete/pages/budget/budget_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '../../generated/locale_keys.g.dart';
 import '../home/home_page.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 
@@ -36,11 +37,10 @@ class _StatisticsPageState extends State<StatisticsPage> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Text(
-              AppLocalizations.of(context).tr('stat.statistics'),
-              style: TextStyle( color: Color(0xff323643),fontSize: 20),
-            ),
+              LocaleKeys.stat_statistics,
+              style: TextStyle(color: Color(0xff323643), fontSize: 20),
+            ).tr(),
           ],
-          
         ),
       ),
       //leading: IconButton(icon: Image.asset('assets/menu-icon.png') , onPressed: (){}),
@@ -51,7 +51,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
   get _listOfTransactions {
     return Card(
       child: ListView.builder(
-        primary: false,
+          primary: false,
           itemCount: transaction.length,
           itemBuilder: (BuildContext context, int index) {
             String drcr = transaction[index].drcr;
@@ -101,9 +101,9 @@ class _StatisticsPageState extends State<StatisticsPage> {
                         Expanded(
                           child: ListTile(
                             title: Text(
-                              AppLocalizations.of(context).tr('stat.card_balance'),
+                              LocaleKeys.stat_card_balance,
                               style: TextStyle(color: Color(0xff77869E)),
-                            ),
+                            ).tr(),
                             subtitle: Text(
                               '\$6,390',
                               style: TextStyle(
@@ -163,16 +163,17 @@ class _StatisticsPageState extends State<StatisticsPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(AppLocalizations.of(context).tr('stat.spending'),
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold)),
+                    Text(LocaleKeys.stat_spending,
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold))
+                        .tr(),
                     FlatButton(
-                      child: Text(AppLocalizations.of(context).tr('stat.view_budget')),
+                      child: Text(LocaleKeys.stat_view_budget).tr(),
                       onPressed: () {
-                        Navigator.of(context)
-                            .push(MaterialPageRoute(builder: (context) => BudgetPage()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => BudgetPage()));
                       },
                     )
                   ],
@@ -214,8 +215,11 @@ class _AreaAndLineChart extends State<AreaAndLineChart> {
     false,
     false,
   ];
-  var menuItem = <String>[AppLocalizations.of(_con).tr('stat.monthly'), AppLocalizations.of(_con).tr('stat.daily')];
-  String _selectedText = AppLocalizations.of(_con).tr('stat.monthly');
+  var menuItem = <String>[
+    LocaleKeys.stat_monthly.tr(),
+    LocaleKeys.stat_daily.tr()
+  ];
+  String _selectedText = LocaleKeys.stat_monthly;
 
   _generateData() {
     var linesalesdata = [
@@ -293,18 +297,18 @@ class _AreaAndLineChart extends State<AreaAndLineChart> {
             renderBorder: false,
             borderRadius: BorderRadius.circular(18.0),
             children: [
-              Text(AppLocalizations.of(_con).tr('months.jan')),
-              Text(AppLocalizations.of(_con).tr('months.feb')),
-              Text(AppLocalizations.of(_con).tr('months.mar')),
-              Text(AppLocalizations.of(_con).tr('months.apr')),
-              Text(AppLocalizations.of(_con).tr('months.may')),
-              Text(AppLocalizations.of(_con).tr('months.jun')),
-              Text(AppLocalizations.of(_con).tr('months.jul')),
-              Text(AppLocalizations.of(_con).tr('months.ags')),
-              Text(AppLocalizations.of(_con).tr('months.seb')),
-              Text(AppLocalizations.of(_con).tr('months.oct')),
-              Text(AppLocalizations.of(_con).tr('months.nov')),
-              Text(AppLocalizations.of(_con).tr('months.dec')),
+              Text(LocaleKeys.months_jan.tr()),
+              Text(LocaleKeys.months_feb.tr()),
+              Text(LocaleKeys.months_mar.tr()),
+              Text(LocaleKeys.months_apr.tr()),
+              Text(LocaleKeys.months_may.tr()),
+              Text(LocaleKeys.months_jun.tr()),
+              Text(LocaleKeys.months_jul.tr()),
+              Text(LocaleKeys.months_ags.tr()),
+              Text(LocaleKeys.months_seb.tr()),
+              Text(LocaleKeys.months_oct.tr()),
+              Text(LocaleKeys.months_nov.tr()),
+              Text(LocaleKeys.months_dec.tr()),
             ],
             isSelected: isSelected,
           ),

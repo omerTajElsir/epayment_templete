@@ -16,9 +16,14 @@ import 'lockscreen.dart';
 // void main() => runApp(MyApp());
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
   await DB.init();
   runApp(AppLock(
-    builder: (args) => EasyLocalization(child: MyApp()),
+    builder: (args) => EasyLocalization(
+        supportedLocales: [Locale('en', 'US'), Locale('ar', 'DZ')],
+        path: 'resources/langs', // <-- change the path of the translation files
+        fallbackLocale: Locale('en', 'US'),
+        child: MyApp()),
     lockScreen: LockScreen(),
     enabled: true,
   ));
@@ -27,30 +32,17 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var data = EasyLocalizationProvider.of(context).data;
-    return EasyLocalizationProvider(
-        data: data,
-        child: MaterialApp(
-          title: 'Albalad Bank',
-          localizationsDelegates: [
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            //app-specific localization
-            EasyLocalizationDelegate(
-              locale: data.locale,
-              path: 'resources/langs',
-              //useOnlyLangCode: true,
-              // loadPath: 'https://raw.githubusercontent.com/aissat/easy_localization/master/example/resources/langs'
-            ),
-          ],
-          supportedLocales: [Locale('en', 'US'), Locale('ar', 'DZ')],
-          locale: data.locale,
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
-          home: MyHomePage(),
-          debugShowCheckedModeBanner: false,
-        ));
+    return MaterialApp(
+      title: 'Albalad Bank',
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyHomePage(),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
 
@@ -60,7 +52,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   static final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
   Map<String, dynamic> _deviceData = <String, dynamic>{};
 
@@ -78,7 +69,6 @@ class _MyHomePageState extends State<MyHomePage> {
         deviceData = _readAndroidBuildData(await deviceInfoPlugin.androidInfo);
       } else if (Platform.isIOS) {
         deviceData = _readIosDeviceInfo(await deviceInfoPlugin.iosInfo);
-
       }
       print(deviceData);
     } on PlatformException {
@@ -142,6 +132,7 @@ class _MyHomePageState extends State<MyHomePage> {
       'utsname.machine:': data.utsname.machine,
     };
   }
+
   @override
   Widget build(BuildContext context) {
     return SplashPage();

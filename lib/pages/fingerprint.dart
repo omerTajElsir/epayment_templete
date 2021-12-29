@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_widgets/responsive_widgets.dart';
 import 'package:local_auth/local_auth.dart';
 
-import '../consts.dart';
+import '../generated/locale_keys.g.dart';
 
 class FingerPrint extends StatefulWidget {
   @override
@@ -38,73 +38,66 @@ class _FingerPrintState extends State<FingerPrint> {
 
   @override
   Widget build(BuildContext context) {
-    var data = EasyLocalizationProvider.of(context).data;
+    ResponsiveWidgets.init(
+      context,
+      height: 1920, // Optional
+      width: 1080, // Optional
+    );
 
-    ResponsiveWidgets.init(context,
-        referenceHeight: 1920, // Optional
-        referenceWidth: 1080, // Optional
-        referenceShortestSide: 411 // Optional,
-        );
-
-    return EasyLocalizationProvider(
-      data: data,
-      child: ResponsiveWidgets.builder(
-        child: Scaffold(
-            backgroundColor: Color(0xffDBA14F),
-            body: SafeArea(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Padding(
-                      padding: EdgeInsetsResponsive.only(top: 20.0, right: 20,left:20 ),
-                      child: GestureDetector(
-                        onTap: () {
-                          bottomSheetFailed(context);
-                        },
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                            // alignment: Alignment.topRight,
-                            children: <Widget>[
-                              Text(
-                                AppLocalizations.of(context)
-                                    .tr('fingerprint.Next'),
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 13),
-                              ),
-                            ]),
-                      ),
+    return ResponsiveWidgets.builder(
+      child: Scaffold(
+          backgroundColor: Color(0xffDBA14F),
+          body: SafeArea(
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsetsResponsive.only(
+                        top: 20.0, right: 20, left: 20),
+                    child: GestureDetector(
+                      onTap: () {
+                        bottomSheetFailed(context);
+                      },
+                      child: Row(mainAxisAlignment: MainAxisAlignment.end,
+                          // alignment: Alignment.topRight,
+                          children: <Widget>[
+                            Text(
+                              LocaleKeys.fingerprint_Next,
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 13),
+                            ).tr(),
+                          ]),
                     ),
-                    Center(
-                      child: Column(
-                        children: <Widget>[
-                          GestureDetector(
-                              onLongPress: () {
-                                fingerscan();
-                              },
-                              child: Image.asset(
-                                  'assets/fingerprint/fingerprint-white.png')),
-                          Padding(
-                            padding: EdgeInsetsResponsive.only(
-                              top: 20.0,
-                            ),
-                            child: Align(
-                              child: Text(
-                                AppLocalizations.of(context)
-                                    .tr('fingerprint.Tap and hold to scan'),
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 13),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
+                  ),
+                  Center(
+                    child: Column(
+                      children: <Widget>[
+                        GestureDetector(
+                            onLongPress: () {
+                              fingerscan();
+                            },
+                            child: Image.asset(
+                                'assets/fingerprint/fingerprint-white.png')),
+                        Padding(
+                          padding: EdgeInsetsResponsive.only(
+                            top: 20.0,
+                          ),
+                          child: Align(
+                            child: Text(
+                              LocaleKeys.fingerprint_Tap_and_hold_to_scan,
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 13),
+                            ).tr(),
+                          ),
+                        )
+                      ],
                     ),
-                    Container()
-                  ]),
-            )),
-      ),
+                  ),
+                  Container()
+                ]),
+          )),
     );
   }
 
@@ -128,21 +121,21 @@ class _FingerPrintState extends State<FingerPrint> {
           Padding(
             padding: EdgeInsetsResponsive.only(top: 20.0),
             child: Text(
-              AppLocalizations.of(context).tr('fingerprint.Scanned'),
+              LocaleKeys.fingerprint_Scanned,
               style: TextStyle(color: Colors.black, fontSize: 23),
-            ),
+            ).tr(),
           ),
           Padding(
             padding: EdgeInsetsResponsive.only(top: 12.0),
             child: Text(
-              AppLocalizations.of(context).tr(
-                  'fingerprint.Your Fingerprint Is \n Has Been Successfully Scanned'),
+              LocaleKeys
+                  .fingerprint_Your_Fingerprint_Is_Has_Been_Successfully_Scanned,
               style: TextStyle(
                 color: Color(0xffBBBBBB),
                 fontSize: 14,
               ),
               textAlign: TextAlign.center,
-            ),
+            ).tr(),
           ),
           Container(
             height: 2,
@@ -157,9 +150,9 @@ class _FingerPrintState extends State<FingerPrint> {
                     .push(MaterialPageRoute(builder: (context) => HomePage()));
               },
               child: Text(
-                AppLocalizations.of(context).tr('fingerprint.OK'),
+                LocaleKeys.fingerprint_OK,
                 style: TextStyle(color: Colors.black, fontSize: 16),
-              ),
+              ).tr(),
             ),
           )
         ]),

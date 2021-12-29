@@ -47,8 +47,8 @@
     "Our": "     Our"
   },
   "confirm_page": {
-    "Enter the 4-digit code sent to you at": "Enter the 4-digit code sent to you at",
-    "I didn’t receive code": "I didn’t receive code"
+    "Enter_the_4_digit_code_sent_to_you_at": "Enter the 4-digit code sent to you at",
+    "I_didnt_receive_code": "I didn’t receive code"
   },
   "test": {
     "test2": "test 2"
@@ -59,7 +59,7 @@
     "Month": "Month",
     "Day": "Day",
     "Year": "Year",
-    "Your wallet": "Your wallet",
+    "Your_wallet": "Your wallet",
     "SDG": ".SDG"
   },
   "Profile": {
@@ -67,26 +67,26 @@
     "GENERAL": "GENERAL",
     "Profile": "Profile",
     "Logout": "Logout",
-    "Account Settings": "Account Settings",
-    "Update and modify your profile": "Update and modify your profile",
-    "Payment Details": "Payment Details",
-    "Cards Settings'": "Cards Settings'",
-    "Notifications & Alerts": "Notifications & Alerts",
-    "App Settings": "App Settings"
+    "Account_Settings": "Account Settings",
+    "Update_and_modify_your_profile": "Update and modify your profile",
+    "Payment_Details": "Payment Details",
+    "Cards_Settings": "Cards Settings'",
+    "Notifications_Alerts": "Notifications & Alerts",
+    "App_Settings": "App Settings"
   },
   "fingerprint": {
-    "Tap and hold to scan": "Tap and hold to scan",
+    "Tap_and_hold_to_scan": "Tap and hold to scan",
     "Next": "Next",
     "Scanned": "Scanned ",
     "OK": "OK",
-    "Your Fingerprint Is \n Has Been Successfully Scanned": "Your Fingerprint Is \n Has Been Successfully Scanned"
+    "Your_Fingerprint_Is_Has_Been_Successfully_Scanned": "Your Fingerprint Is \n Has Been Successfully Scanned"
   },
   "dialog": {
     "Send": "Send",
     "Pay": "Pay",
-    "It seems like your balance is insufficient,\n please top up and try again.": "It seems like your balance is insufficient,\n please top up and try again.",
-    "Not working?": "Not working?",
-    "Transfer is Successfull": "Transfer is Successfull"
+    "It_seems_like_your_balance_is_insufficient_please_top_up_and_try_again.": "It seems like your balance is insufficient,\n please top up and try again.",
+    "Not_working": "Not working?",
+    "Transfer_is_Successfull": "Transfer is Successfull"
   },
 
 
@@ -174,3 +174,5 @@
     "spending" : "Spending Breakdown"
   }
 }
+
+

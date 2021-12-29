@@ -39,25 +39,25 @@
     "Our": " "
   },
   "confirm_page": {
-    "Enter the 4-digit code sent to you at": "أدخل رمز التأكيد المكون من أربع خانات",
-    "I didn’t receive code": "لم استلم رمز التأكيد"
+    "Enter_the_4_digit_code_sent_to_you_at": "أدخل رمز التأكيد المكون من أربع خانات",
+    "I_didnt_receive_code": "لم استلم رمز التأكيد"
   },
   "test": {
     "test2": "اختابر"
   },
   "fingerprint": {
-    "Tap and hold to scan": "المس لفحص البصمة",
+    "Tap_and_hold_to_scan": "المس لفحص البصمة",
     "Next": "التالي",
     "Scanned": "تم التأكد",
     "OK": "حسناً",
-    "Your Fingerprint Is \n Has Been Successfully Scanned": "تم فحص بصمتك \n بنجاح"
+    "Your_Fingerprint_Is_Has_Been_Successfully_Scanned": "تم فحص بصمتك \n بنجاح"
   },
   "dialog": {
     "Send": "ارسال",
     "Pay": "دفع",
-    "It seems like your balance is insufficient,\n please top up and try again.": "يبدو أن رصيدك غير كافٍ ، \n يرجى إعادة الشحن والمحاولة مرة أخرى.",
-    "Not working?": "لا يعمل؟",
-    "Transfer is Successfull": "تم التحويل بنجاح"
+    "It_seems_like_your_balance_is_insufficient_please_top_up_and_try_again": "يبدو أن رصيدك غير كافٍ ، \n يرجى إعادة الشحن والمحاولة مرة أخرى.",
+    "Not_working": "لا يعمل؟",
+    "Transfer_is_Successfull": "تم التحويل بنجاح"
   },
   "Maps": {
     "title": "نقاط الصراف الالي"
@@ -92,7 +92,7 @@
     "top_up_amount": "المبلغ الكلي"
   },
   "Home": {
-    "Remaining Amount": ""
+    "Remaining_Amount": ""
   },
   "MonthReport": {
     "send": "إرسال",
@@ -101,7 +101,7 @@
   },
   "Transactions": {
     "Transactions": "نحويلات",
-    "Your wallet": "محفظتك",
+    "Your_wallet": "محفظتك",
     "Week": "اسبوع",
     "Month": "شهر",
     "Day": "يوم",
@@ -116,12 +116,12 @@
     "GENERAL": "عام",
     "Logout": "تسجيل الخروج",
     "Profile": "الحساب الشخصي",
-    "Account Settings": "اعدادات الحساب",
-    "Update and modify your profile": "تحديث وتعديل حسابك الشخصي",
-    "Payment Details": "بيانات الدفع",
-    "Cards Settings": "اعدادات البطاقات",
-    "Notifications & Alerts": "الاشعارات والتنبيه",
-    "App Settings": "اعدادات التطبيق"
+    "Account_Settings": "اعدادات الحساب",
+    "Update_and_modify_your_profile": "تحديث وتعديل حسابك الشخصي",
+    "Payment_Details": "بيانات الدفع",
+    "Cards_Settings": "اعدادات البطاقات",
+    "Notifications_Alerts": "الاشعارات والتنبيه",
+    "App_Settings": "اعدادات التطبيق"
   },
 
   "weeks" :{
