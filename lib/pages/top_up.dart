@@ -53,19 +53,10 @@ class _TopUpState extends State<TopUp> {
                                 color: Colors.grey[800],
                                 fontSize: 20,
                                 fontWeight: FontWeight.w600),
-                          ))
+                          ).tr())
                         ],
                       ),
                     ),
-                    Container(
-                        margin: EdgeInsets.only(top: 3),
-                        child: IconButton(
-                            icon: Icon(
-                              Icons.menu,
-                              size: 25,
-                              color: Colors.grey[800],
-                            ),
-                            onPressed: null)),
                   ],
                 ),
               ),
@@ -258,7 +249,7 @@ class _TopUpState extends State<TopUp> {
                 child: TextFormField(
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
-                      labelText: LocaleKeys.TopUp_phone,
+                      labelText: LocaleKeys.TopUp_phone.tr(),
                       labelStyle: TextStyle(color: Colors.grey[700]),
                       focusedBorder: UnderlineInputBorder(
                         borderSide:

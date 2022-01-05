@@ -110,7 +110,7 @@ class _ProfileState extends State<Profile> {
                                   color: Colors.grey[600],
                                   fontWeight: FontWeight.w600,
                                   fontSize: 18),
-                            )),
+                            ).tr()),
                       ),
                     ],
                   ),

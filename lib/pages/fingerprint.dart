@@ -1,12 +1,10 @@
 import 'dart:io';
-
 import 'package:epayment_templete/bottomsheets/bottomsheets.dart';
 import 'package:epayment_templete/pages/home/home_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_widgets/responsive_widgets.dart';
 import 'package:local_auth/local_auth.dart';
-
 import '../generated/locale_keys.g.dart';
 
 class FingerPrint extends StatefulWidget {

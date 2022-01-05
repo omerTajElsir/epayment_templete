@@ -54,6 +54,7 @@ class _BudgetPageState extends State<BudgetPage> {
   void initState() {
     super.initState();
     eventObservable.add(10);
+    print(eventObservable.publishValue());
   }
 
   @override
@@ -63,46 +64,44 @@ class _BudgetPageState extends State<BudgetPage> {
       //appBar: _getAppbar,
       body: Stack(
         children: <Widget>[
-
           ListView(
             padding: const EdgeInsets.all(0),
             children: <Widget>[
-
               Stack(
                 children: <Widget>[
                   Column(
                     children: <Widget>[
                       Container(
                         height: size.height * 0.40,
-                        width: size.width ,
+                        width: size.width,
                         //color: Colors.black,
                         decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage("assets/blackpg.png"),
-                            fit: BoxFit.cover
-                          )
-                        ),
-                        padding: EdgeInsets.only(top: 40,left: 10),
+                            image: DecorationImage(
+                                image: AssetImage("assets/blackpg.png"),
+                                fit: BoxFit.cover)),
+                        padding: EdgeInsets.only(top: 40, left: 10),
                         child: Align(
                           alignment: Alignment.topCenter,
                           child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: <Widget>[
-                                IconButton(
-                                    icon: Icon(
-                                      Icons.arrow_back,color: Colors.white,
-                                    ),
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    }),
-                                Text(
-                                  'Your Budgets',
-                                  style: TextStyle(color: Colors.white, fontSize: 20,fontWeight: FontWeight.bold),
-                                  textAlign: TextAlign.left,
-                                ),
-
-                              ],
-
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              IconButton(
+                                  icon: Icon(
+                                    Icons.arrow_back,
+                                    color: Colors.white,
+                                  ),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  }),
+                              Text(
+                                'Your Budgets',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                                textAlign: TextAlign.left,
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -114,15 +113,15 @@ class _BudgetPageState extends State<BudgetPage> {
                   ),
                   Container(
                       height: size.height * 0.40,
-                      width: size.width ,
+                      width: size.width,
                       margin: EdgeInsets.only(top: 100),
                       child: Card(
                         margin: EdgeInsets.all(20),
                         child: TransformerPageView(
-                          // transformer: ,
+                            // transformer: ,
                             itemBuilder: (context, index) {
                               return SpeedOMeter(
-                                index: index,
+                                  index: index,
                                   start: start,
                                   end: end,
                                   highlightEnd: (_upperValue / end),
@@ -136,21 +135,22 @@ class _BudgetPageState extends State<BudgetPage> {
                 height: 10,
               ),
               Padding(
-                padding: const EdgeInsets.only(left:10.0,right: 10),
+                padding: const EdgeInsets.only(left: 10.0, right: 10),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text('Transactions',
-                        style: TextStyle(fontSize: 20, color: Color(0xff042C5C))),
+                        style:
+                            TextStyle(fontSize: 20, color: Color(0xff042C5C))),
                     FlatButton(
                         onPressed: () {
-                          Navigator.of(context)
-                              .push(MaterialPageRoute(builder: (context) => MonthReport()));
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => MonthReport()));
                         },
                         child: Text('View All',
-                            style:
-                                TextStyle(fontSize: 13, color: Color(0xff77869E)))),
+                            style: TextStyle(
+                                fontSize: 13, color: Color(0xff77869E)))),
                   ],
                 ),
               ),
@@ -158,7 +158,7 @@ class _BudgetPageState extends State<BudgetPage> {
                 height: 10,
               ),
               Padding(
-                padding: const EdgeInsets.only(left:10.0,right: 10),
+                padding: const EdgeInsets.only(left: 10.0, right: 10),
                 child: ToggleButtons(
                     onPressed: (index) {
                       setState(() {
@@ -175,7 +175,8 @@ class _BudgetPageState extends State<BudgetPage> {
                     children: [
                       Container(
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(Radius.circular(10))),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10))),
                           width: (size.width - 20) / 4,
                           child: Text(
                             'Day',
@@ -198,7 +199,7 @@ class _BudgetPageState extends State<BudgetPage> {
               ),
               Container(
                 height: size.height * 0.50,
-                padding: const EdgeInsets.only(left:15.0,right: 15),
+                padding: const EdgeInsets.only(left: 15.0, right: 15),
                 width: size.width,
                 child: Card(
                   shape: RoundedRectangleBorder(

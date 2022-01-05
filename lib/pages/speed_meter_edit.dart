@@ -18,7 +18,7 @@ class SpeedOMeter extends StatefulWidget {
       this.end,
       this.highlightEnd,
       this.eventObservable,
-      this.index}) {}
+      this.index});
 
   @override
   _SpeedOMeterState createState() => new _SpeedOMeterState(

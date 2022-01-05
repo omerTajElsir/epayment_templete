@@ -19,6 +19,16 @@ class _StatisticsPageState extends State<StatisticsPage> {
   String incomeBalance = '3,214';
   String expenceBalance = '1,640';
 
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    size = MediaQuery.of(context).size;
+  }
+
   final List<Transaction> transaction = [
     Transaction('POS', '12:03:2018 21:15', 123.12, 'CR', 'SDG'),
     Transaction('Bank', '15.03.2018 15:00', 12.42, 'DR', 'SDG'),
@@ -81,7 +91,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
     setState(() {
       _con = context;
     });
-    size = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: _getAppbar,
       body: SafeArea(
@@ -215,10 +225,7 @@ class _AreaAndLineChart extends State<AreaAndLineChart> {
     false,
     false,
   ];
-  var menuItem = <String>[
-    LocaleKeys.stat_monthly.tr(),
-    LocaleKeys.stat_daily.tr()
-  ];
+  var menuItem = <String>[LocaleKeys.stat_monthly, LocaleKeys.stat_daily];
   String _selectedText = LocaleKeys.stat_monthly;
 
   _generateData() {
@@ -276,7 +283,8 @@ class _AreaAndLineChart extends State<AreaAndLineChart> {
         children: <Widget>[
           DropdownButton<String>(
             items: menuItem.map((value) {
-              return DropdownMenuItem<String>(value: value, child: Text(value));
+              return DropdownMenuItem<String>(
+                  value: value, child: Text(value).tr());
             }).toList(),
             onChanged: (val) {
               setState(() {
@@ -321,12 +329,17 @@ class _AreaAndLineChart extends State<AreaAndLineChart> {
   void initState() {
     super.initState();
     _seriesLineData = List<charts.Series<Sales, int>>();
+
     _generateData();
   }
 
   @override
-  Widget build(BuildContext context) {
+  void didChangeDependencies() {
     _size = MediaQuery.of(context).size;
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return ListView(
       primary: false,
       children: <Widget>[
